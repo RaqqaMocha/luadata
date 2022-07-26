@@ -2,7 +2,7 @@ import codecs
 from luadata.serializer.unserialize import unserialize
 
 
-def read(path, encoding="utf-8", multival=False):
+def read(path, encoding="utf-8", multival=False, verbose=False):
     """Read luadata from file
 
     Args:
@@ -23,4 +23,4 @@ def read(path, encoding="utf-8", multival=False):
                 or ch == "_"
             ):
                 text = text[6:]
-        return unserialize(text, encoding=encoding, multival=False)
+        return unserialize(text, encoding=encoding, multival=False, verbose=verbose)
