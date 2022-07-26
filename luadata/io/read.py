@@ -23,4 +23,4 @@ def read(path, encoding="utf-8", multival=False, verbose=False):
                 or ch == "_"
             ):
                 text = text[6:]
-        return unserialize(text, encoding=encoding, multival=False, verbose=verbose)
+        return unserialize(text, encoding=encoding, multival=multival, verbose=verbose)
