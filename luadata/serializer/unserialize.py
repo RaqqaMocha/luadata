@@ -197,7 +197,8 @@ def unserialize(raw, encoding="utf-8", multival=False, verbose=False):
                     pos = pos - 1
                 data = None
         elif state == "FLOAT":
-            if byte_current is None or byte_current < b"0" or byte_current > b"9":
+            not_sci =  (byte_current != b"e" and byte_current != b"-" and byte_current != b"+")
+            if byte_current is None or ((byte_current < b"0" or byte_current > b"9") and not_sci):
                 if pos == pos1 + 1 and sbins[pos1:pos] == b".":
                     errmsg = "unexpected dot."
                     break
